@@ -1,0 +1,30 @@
+{
+  "include": [
+    "app",
+    "modules",
+    "Sketch2Shape_AI"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    ".venv",
+    "Sketch2Shape_AI/.venv"
+  ],
+  "extraPaths": [
+    "Sketch2Shape_AI"
+  ],
+  "executionEnvironments": [
+    {
+      "root": "Sketch2Shape_AI/colab",
+      "reportMissingImports": "none"
+    },
+    {
+      "root": "colab",
+      "reportMissingImports": "none"
+    },
+    {
+      "root": "."
+    }
+  ]
+}
+

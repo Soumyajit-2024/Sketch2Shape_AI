@@ -1,0 +1,17 @@
+{
+  "id": "creation_1793495829",
+  "title": "Modern Furniture",
+  "date": "Nov 01, 2026 - 06:47 AM",
+  "timestamp": 1793495830.219272,
+  "prompt": "No description provided",
+  "object_type": "Furniture",
+  "material": "Wood",
+  "style": "Modern",
+  "engine": "OpenCV Extrusion Fallback",
+  "vertex_count": 0,
+  "face_count": 0,
+  "thumb_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793495829_thumb.png",
+  "obj_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793495829_model.obj",
+  "glb_path": null,
+  "has_3d": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "creation_1793500393",
+  "title": "its a 3d Car",
+  "date": "Nov 01, 2026 - 08:03 AM",
+  "timestamp": 1793500393.5594556,
+  "prompt": "its a 3d Car",
+  "object_type": "Vehicle",
+  "material": "Custom",
+  "style": "Realistic",
+  "engine": "OpenCV Extrusion Fallback",
+  "vertex_count": 0,
+  "face_count": 0,
+  "thumb_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793500393_thumb.png",
+  "obj_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793500393_model.obj",
+  "glb_path": null,
+  "has_3d": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "creation_1793505856",
+  "title": "Realistic Furniture",
+  "date": "Nov 01, 2026 - 09:34 AM",
+  "timestamp": 1793505857.0237455,
+  "prompt": "No description provided",
+  "object_type": "Furniture",
+  "material": "Wood",
+  "style": "Realistic",
+  "engine": "Local 3D Structural Engine (Offline Mode)",
+  "vertex_count": 0,
+  "face_count": 0,
+  "thumb_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793505856_thumb.png",
+  "obj_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793505856_model.obj",
+  "glb_path": "C:\\Users\\Soumyajit\\Desktop\\Sketch2Shape_AI\\Sketch2Shape_AI\\outputs\\creations\\creation_1793505856_model.glb",
+  "has_3d": true
+}

@@ -1,0 +1,19 @@
+<svg width='160' height='160' viewBox='0 0 160 160' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <!-- Rotation arrow back arc -->
+  <path d='M30 100 C20 78, 45 55, 80 55 C100 55, 120 65, 132 80' stroke='#CBD5E1' stroke-width='2' stroke-linecap='round' stroke-dasharray='4 3'/>
+  
+  <!-- Isometric Cube -->
+  <!-- Top Face -->
+  <polygon points='80,35 115,55 80,75 45,55' fill='#F1F5F9' stroke='#CBD5E1' stroke-width='1.5' stroke-linejoin='round'/>
+  <!-- Left Face -->
+  <polygon points='45,55 80,75 80,115 45,95' fill='#E2E8F0' stroke='#CBD5E1' stroke-width='1.5' stroke-linejoin='round'/>
+  <!-- Right Face -->
+  <polygon points='80,75 115,55 115,95 80,115' fill='#CBD5E1' stroke='#94A3B8' stroke-width='1.5' stroke-linejoin='round'/>
+
+  <!-- Rotation arrows foreground arc -->
+  <path d='M132 82 C142 98, 115 125, 80 125 C50 125, 26 108, 22 92' stroke='#94A3B8' stroke-width='2.2' stroke-linecap='round'/>
+  <!-- Left arrowhead pointing left -->
+  <polyline points='20,99 21,91 29,94' fill='none' stroke='#94A3B8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
+  <!-- Right arrowhead pointing right -->
+  <polyline points='134,75 133,83 125,80' fill='none' stroke='#94A3B8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
+</svg>

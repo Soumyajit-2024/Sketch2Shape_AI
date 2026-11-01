@@ -71,13 +71,15 @@ def render_3d_viewer(
                 background-color: #F8FAFC;
                 color: #0F172A;
                 overflow: hidden;
-                width: 100vw;
-                height: {height}px;
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
             }}
             #container {{
                 position: relative;
                 width: 100%;
                 height: 100%;
+                max-width: 100%;
                 background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
                 border: 1px solid #E2E8F0;
                 border-radius: 14px;
@@ -225,6 +227,83 @@ def render_3d_viewer(
                 font-weight: 500;
                 color: #64748B;
                 letter-spacing: -0.01em;
+            }}
+
+            /* Responsive 3D Viewer Toolbar & Overlays for Tablets & Mobile */
+            @media (max-width: 600px) {{
+                .toolbar {{
+                    top: 10px;
+                    left: 10px;
+                    right: 10px;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                }}
+                .header-title {{
+                    font-size: 13px;
+                }}
+                .header-title span {{
+                    max-width: 130px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }}
+                .format-tag {{
+                    font-size: 9px;
+                    padding: 1px 5px;
+                }}
+                .header-actions {{
+                    gap: 4px;
+                    flex-wrap: wrap;
+                }}
+                .btn-group {{
+                    gap: 3px;
+                    padding: 3px;
+                }}
+                .tool-btn {{
+                    font-size: 10px;
+                    padding: 4px 6px;
+                    gap: 2px;
+                }}
+                .icon-btn {{
+                    width: 28px;
+                    height: 28px;
+                }}
+                .hud-bar {{
+                    bottom: 8px;
+                    left: 10px;
+                    right: 10px;
+                    flex-wrap: wrap;
+                    gap: 4px;
+                }}
+                .hud-info {{
+                    font-size: 10px;
+                    padding: 3px 6px;
+                }}
+                .instructions {{
+                    display: none;
+                }}
+                .standby-cube svg {{
+                    width: 100px;
+                    height: 100px;
+                }}
+                .standby-text {{
+                    font-size: 12px;
+                    padding: 0 12px;
+                }}
+            }}
+
+            @media (max-width: 380px) {{
+                .header-title span {{
+                    max-width: 95px;
+                }}
+                .tool-btn {{
+                    font-size: 9px;
+                    padding: 3px 5px;
+                }}
+                .standby-cube svg {{
+                    width: 80px;
+                    height: 80px;
+                }}
             }}
         </style>
         <!-- Load Three.js, OrbitControls, and GLTFLoader -->
@@ -570,12 +649,18 @@ def render_3d_viewer(
                     }});
                 }}
 
-                window.addEventListener('resize', function() {{
+                function updateViewportSize() {{
                     const w = container.clientWidth;
                     const h = container.clientHeight;
-                    camera.aspect = w / h;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(w, h);
+                    if (w > 0 && h > 0) {{
+                        camera.aspect = w / h;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(w, h);
+                    }}
+                }}
+                window.addEventListener('resize', updateViewportSize, false);
+                window.addEventListener('orientationchange', function() {{
+                    setTimeout(updateViewportSize, 120);
                 }}, false);
 
                 function animate() {{

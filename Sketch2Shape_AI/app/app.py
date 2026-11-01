@@ -169,12 +169,37 @@ st.markdown("""<style>
     --radius-pill: 24px;
 }
 
+/* Box Sizing & Fluid Root Constraints */
+*, *::before, *::after {
+    box-sizing: border-box !important;
+}
+
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-text-size-adjust: 100%;
+}
+
 /* Global App Container */
 body, .stApp {
     background-color: var(--bg-page) !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
     color: var(--text-primary) !important;
     overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+}
+
+/* Prevent Letter-by-Letter Vertical Text Wrapping */
+html, body, .stApp, .saas-card, .hero-box, .bottom-workflow-bar,
+[data-testid="stMarkdownContainer"], [data-testid="stMarkdownContainer"] p,
+[data-testid="stText"], label, button, .stButton, div[data-baseweb="select"],
+.top-nav-title-script, .hero-text, .step-text-title, .step-text-desc {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
 }
 
 /* Ensure the main container expands to 100% available width */
@@ -183,6 +208,7 @@ body, .stApp {
     margin-left: 0 !important;
     padding-left: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
 }
 
 .stMain,
@@ -204,6 +230,24 @@ body, .stApp {
     margin: 0 auto !important;
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+}
+
+@media (max-width: 768px) {
+    .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 1.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .block-container {
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 1.25rem !important;
+    }
 }
 
 /* Backdrop Overlay Behind Sidebar */
@@ -249,6 +293,15 @@ section[data-testid="stSidebar"],
     display: block !important;
     visibility: visible !important;
     padding: 0 !important;
+}
+
+@media (max-width: 480px) {
+    section[data-testid="stSidebar"],
+    [data-testid="stSidebar"] {
+        width: 86vw !important;
+        min-width: 0 !important;
+        max-width: 310px !important;
+    }
 }
 
 /* Open State: Slide in to Left Edge */
@@ -520,12 +573,55 @@ section[data-testid="stSidebar"],
 }
 
 @media (max-width: 640px) {
-    .top-nav-title-script {
-        font-size: 26px !important;
-    }
     .top-navbar {
-        min-height: 50px;
-        padding: 6px 12px;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 50px !important;
+        padding: 6px 10px !important;
+        margin-bottom: 12px !important;
+    }
+    .top-nav-left {
+        flex: 0 0 38px !important;
+        width: 38px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .top-nav-center {
+        flex: 1 1 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0 4px !important;
+        min-width: 0 !important;
+    }
+    .top-nav-title-script {
+        font-size: clamp(20px, 5.6vw, 26px) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        line-height: 1.15 !important;
+    }
+    .top-nav-right-spacer {
+        flex: 0 0 38px !important;
+        width: 38px !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .top-navbar {
+        padding: 4px 6px !important;
+        min-height: 46px !important;
+    }
+    .top-nav-left,
+    .top-nav-right-spacer {
+        flex: 0 0 32px !important;
+        width: 32px !important;
+    }
+    .top-nav-title-script {
+        font-size: 19px !important;
     }
 }
 
@@ -555,6 +651,45 @@ section[data-testid="stSidebar"],
     font-size: 13px;
     color: #64748B;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-box {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 16px 18px !important;
+        gap: 14px !important;
+        margin-bottom: 14px !important;
+    }
+    .hero-text h2 {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+    }
+    .hero-text p {
+        font-size: 12px !important;
+    }
+    .hero-visual {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .hero-visual svg {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 80px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-box {
+        padding: 12px 14px !important;
+    }
+    .hero-text h2 {
+        font-size: 15px !important;
+    }
+    .hero-visual svg {
+        max-height: 65px !important;
+    }
 }
 
 /* Consistent Card Styling Across All Pages */
@@ -744,6 +879,7 @@ div[data-testid="stRadio"]:has(input[aria-label="📤 Upload"]) div[role="radiog
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .step-text-title {
@@ -762,6 +898,38 @@ div[data-testid="stRadio"]:has(input[aria-label="📤 Upload"]) div[role="radiog
 .step-arrow {
     color: #CBD5E1;
     font-size: 14px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+    .bottom-workflow-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        padding: 14px 16px !important;
+    }
+    .workflow-steps-group {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    .step-arrow {
+        display: none !important;
+    }
+    .step-item {
+        background: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 8px !important;
+        padding: 8px 10px !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .workflow-steps-group {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
 }
 
 /* Text Inputs, Selectboxes & Sliders */
@@ -845,6 +1013,132 @@ div[data-baseweb="select"] > div {
 .stAlert {
     border-radius: 10px !important;
     border: 1px solid #E2E8F0 !important;
+}
+
+/* ==================================================
+   RESPONSIVE DESIGN: MOBILE (320-480px) & TABLET (481-768px)
+   ================================================== */
+
+@media (max-width: 768px) {
+    /* Stack multi-column blocks so content never compresses */
+    [data-testid="stHorizontalBlock"] {
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 1 100% !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Cards */
+    .saas-card {
+        padding: 16px !important;
+        margin-bottom: 14px !important;
+        border-radius: 12px !important;
+    }
+
+    .card-header-row {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    /* Upload / Draw Mode Segmented Control */
+    div[data-testid="stRadio"]:has(input[aria-label="📤 Upload"]) div[role="radiogroup"] {
+        width: 100% !important;
+        justify-content: stretch !important;
+    }
+
+    div[data-testid="stRadio"]:has(input[aria-label="📤 Upload"]) div[role="radiogroup"] > label {
+        flex: 1 1 50% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* Touch-Friendly Form Elements */
+    .stTextInput input,
+    div[data-baseweb="select"] input {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+        min-height: 42px !important;
+    }
+
+    div[data-baseweb="select"] > div {
+        min-height: 42px !important;
+        font-size: 14px !important;
+    }
+
+    .stButton > button,
+    .stDownloadButton > button {
+        min-height: 42px !important;
+        font-size: 13px !important;
+        padding: 10px 16px !important;
+        width: 100% !important;
+    }
+
+    /* Primary CTA Button */
+    .stButton > button[kind="primary"] {
+        min-height: 46px !important;
+        font-size: 14px !important;
+        width: 100% !important;
+    }
+
+    /* Responsive Canvas & Iframe Containers */
+    [data-testid="stCustomComponentV1"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        border-radius: 8px !important;
+    }
+
+    [data-testid="stCustomComponentV1"] iframe {
+        max-width: 100% !important;
+    }
+
+    iframe {
+        max-width: 100% !important;
+    }
+
+    /* Images */
+    [data-testid="stImage"] img {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile-specific compact paddings */
+    .saas-card {
+        padding: 12px !important;
+        margin-bottom: 12px !important;
+        border-radius: 10px !important;
+    }
+
+    .dropzone-container {
+        padding: 16px 10px 12px 10px !important;
+    }
+
+    .dropzone-title {
+        font-size: 13px !important;
+    }
+
+    .card-title-text {
+        font-size: 14px !important;
+    }
+
+    .sidebar-brand-box {
+        padding: 16px 14px 12px 14px !important;
+    }
+
+    .sidebar-footer-box {
+        padding: 12px 14px 0 14px !important;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
